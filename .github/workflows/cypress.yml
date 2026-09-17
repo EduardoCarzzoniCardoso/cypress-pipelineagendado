@@ -10,6 +10,9 @@ on:
 jobs:
   testes-e2e:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cypress-pipeline-agendado
 
     steps:
       - name: Baixar o projeto
@@ -20,14 +23,12 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
-          cache-dependency-path: atividade-cypress/package-lock.json
+          cache-dependency-path: cypress-pipeline-agendado/package-lock.json
 
       - name: Instalar dependencias
-        working-directory: atividade-cypress
         run: npm ci
 
       - name: Executar testes Cypress
-        working-directory: atividade-cypress
         run: npm test
 
       - name: Salvar evidencias em caso de falha
@@ -36,6 +37,6 @@ jobs:
         with:
           name: evidencias-cypress
           path: |
-            atividade-cypress/cypress/screenshots
-            atividade-cypress/cypress/videos
+            cypress-pipeline-agendado/cypress/screenshots
+            cypress-pipeline-agendado/cypress/videos
           if-no-files-found: ignore
