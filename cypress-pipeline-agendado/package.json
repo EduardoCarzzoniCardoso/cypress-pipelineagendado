@@ -1,0 +1,16 @@
+{
+  "name": "cypress-pipeline-agendado",
+  "version": "1.0.0",
+  "description": "Pipeline agendado de automação de testes com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^16.1.0"
+  }
+}
